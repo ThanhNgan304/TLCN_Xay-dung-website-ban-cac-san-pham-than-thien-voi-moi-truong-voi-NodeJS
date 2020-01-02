@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Homepage</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/templatemo-style.css" rel="stylesheet" />
+  <link href="css/all.min.css" rel="stylesheet" />
+</head>
+<style>
+  .CHON {
+    background: rgb(181, 241, 179);
+    opacity: 0.8;
+    color: chocolate;
+  }
+</style>
+
+<body>
+
+  <!-- Navigation -->
+
+  <!-- Start menu -->
+  <div id="Th_Header_Menu">
+
+  </div>
+
+  <!-- End menu -->
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-2">
+
+        <div class="list-group sidenav" style="font-size: 18px; font-weight: bold;">
+          <a href="#" class="list-group-item">
+            <div id="Th_TatCa" class="text-center">Tất cả tin tức</div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div id="Th_TinTrongNuoc" class="text-center">Tin trong nước</div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div id="Th_TinTheGioi" class="text-center">Tin thế giới</div>
+          </a>
+          <!-- <div class="btn">
+                <select class="btn btn-outline-danger" id="Th_Loc_gia" style="width: 200px">
+                    <option value="0-85">-- Chọn giá bán --</option>
+                    <option value="0-20">Dưới 20$</option>
+                    <option value="20-40">Từ 20$ đến 40$</option>
+                    <option value="40-85">Từ 40$ đến 85$</option>
+                </select>
+            <select class="btn btn-outline-danger" id="Th_Sap_xep_Ten" style="margin-top: 5px;">
+              <option value="0">-- Sắp xếp theo tên--</option>
+              <option value="1">A->Z</option>
+              <option value="2">Z->A</option>
+
+            </select>
+            <select class="btn btn-outline-danger" id="Th_Sap_xep_Gia" style="margin-top: 5px;">
+              <option value="0">-- Sắp xếp theo giá--</option>
+              <option value="1">Tăng dần</option>
+              <option value="2">Giảm dần</option>
+
+            </select>
+          </div> -->
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-10">
+        <div id="Th_Name_Stores">
+
+        </div>
+
+        <div class="container-fluid">
+          <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao" style="margin-bottom: 20px">
+            KHUNG THÔNG BÁO
+          </div>
+        </div>
+        <div class="row" id="Th_Cha">
+
+          <!-- <article class="col-lg-6">
+						<figure class="tm-person">
+							<img src="img/about-04.jpg" alt="Image" class="img-fluid tm-person-img">
+							<figcaption class="tm-person-description">
+								<h4 class="tm-person-name">Valentina Martin</h4>
+								<p class="tm-person-title">Culinary Director</p>
+								<p class="tm-person-about">Praesent non vulputate elit. Orci varius
+								natoque penatibus et magnis montes, nascetur ridiculus mus.</p>
+								<div>
+									<a href="https://fb.com" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+									<a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+									<a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+									<a href="https://youtube.com" class="tm-social-link"><i class="fab fa-youtube tm-social-icon"></i></a>
+								</div>
+							</figcaption>
+						</figure>
+					</article> -->
+        </div>
+
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <div class="row footer_info" id="Th_Info_Stores">
+
+      </div>
+      <div class="row" style="margin-top: 1rem; float:right;" id="Th_Team">
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../Xu_ly//Xu_ly_3L.js"></script>
+  <script>
+    Tao_the_hien_Header_Menu(Th_Header_Menu);
+    var Stores = Doc_Thong_tin_Cua_hang();
+    Output_Name_Store(Stores, Th_Name_Stores);
+    Output_Info_Store(Stores, Th_Info_Stores);
+    Output_Team_Name(Stores, Th_Team);
+    Output_Logo(Stores, Th_Logo);
+    if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+      var ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"));
+      Th_Gio_hang.innerHTML = `${ds.length}`
+    }
+    var Data = Read_list_News();
+    Data.then(data => {
+      var Danh_sach_Tin_tuc = [];
+      Danh_sach_Tin_tuc = data.News;
+      console.log(Danh_sach_Tin_tuc)
+      if (sessionStorage.getItem("Loai_Tin_tuc_Chon") == undefined) {
+        if (Danh_sach_Tin_tuc.length > 0) {
+          Xuat_Danh_sach(Danh_sach_Tin_tuc, Th_Thong_bao);
+          Th_TatCa.classList.add("CHON");
+        }
+        else {
+          Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
+        }
+      }
+      else if(JSON.stringify(sessionStorage.getItem("Loai_Tin_tuc_Chon")) == "TinTrongNuoc" ){
+        Danh_sach_Tin_tuc = data.News;
+        var dsTTN = Danh_sach_Tin_tuc.filter(x => x.Nhom_Tin_Tuc.Ma_so.toLowerCase() == "tintrongnuoc")
+        Xuat_Danh_sach(dsTTN, Th_Thong_bao);
+        Danh_sach_Tin_tuc = dsTTN;
+        Th_TatCa.classList.remove("CHON");
+        Th_TinTrongNuoc.classList.add("CHON");
+        Th_TinTheGioi.classList.remove("CHON");
+        //đưa text trong khung tìm kiếm về rỗng
+        Th_gtTim.value = "";
+        sessionStorage.removeItem("Loai_Tin_tuc_Chon");
+      }
+      else {
+        Danh_sach_Tin_tuc = data.News;
+        var dsTTG = Danh_sach_Tin_tuc.filter(x => x.Nhom_Tin_Tuc.Ma_so.toLowerCase() == "tinthegioi")
+        Xuat_Danh_sach(dsTTG, Th_Thong_bao);
+        Danh_sach_Tin_tuc = dsTTG;
+        Th_TatCa.classList.remove("CHON");
+        Th_TinTrongNuoc.classList.remove("CHON");
+        Th_TinTheGioi.classList.add("CHON");
+        //đưa text trong khung tìm kiếm về rỗng
+        Th_gtTim.value = "";
+        sessionStorage.removeItem("Loai_Tin_tuc_Chon");
+      }
+      // Xử lý các nút chức năng
+
+      Th_TatCa.onclick = () => {
+        Danh_sach_Tin_tuc = data.News;
+        Xuat_Danh_sach(Danh_sach_Tin_tuc, Th_Thong_bao);
+
+        //Đổi nền button
+        Th_TatCa.classList.add("CHON");
+        Th_TinTrongNuoc.classList.remove("CHON");
+        Th_TinTheGioi.classList.remove("CHON");
+
+        //đưa text trong khung tìm kiếm về rỗng
+        Th_gtTim.value = "";
+      }
+      Th_TinTrongNuoc.onclick = () => {
+
+        Danh_sach_Tin_tuc = data.News;
+        var dsTTN = Danh_sach_Tin_tuc.filter(x => x.Nhom_Tin_Tuc.Ma_so.toLowerCase() == "tintrongnuoc")
+        Xuat_Danh_sach(dsTTN, Th_Thong_bao);
+        Danh_sach_Tin_tuc = dsTTN;
+        Th_TatCa.classList.remove("CHON");
+        Th_TinTrongNuoc.classList.add("CHON");
+        Th_TinTheGioi.classList.remove("CHON");
+        //đưa text trong khung tìm kiếm về rỗng
+        Th_gtTim.value = "";
+      }
+      Th_TinTheGioi.onclick = () => {
+
+        Danh_sach_Tin_tuc = data.News;
+        var dsTTG = Danh_sach_Tin_tuc.filter(x => x.Nhom_Tin_Tuc.Ma_so.toLowerCase() == "tinthegioi")
+        Xuat_Danh_sach(dsTTG, Th_Thong_bao);
+        Danh_sach_Tin_tuc = dsTTG;
+        Th_TatCa.classList.remove("CHON");
+        Th_TinTrongNuoc.classList.remove("CHON");
+        Th_TinTheGioi.classList.add("CHON");
+        //đưa text trong khung tìm kiếm về rỗng
+        Th_gtTim.value = "";
+      }
+
+    });
+
+    //xuất danh sách thuc pham
+    function Xuat_Danh_sach(DS, Th_Thong_bao) {
+      Th_Cha.innerHTML = ""
+      DS.forEach(tt => {
+        var The_hien = Tao_The_hien_Tin_tuc(tt, Th_Cha)
+      });
+      Th_Thong_bao.innerHTML = `<h3>Danh sách tin tức (${DS.length}) </h3>`
+    }
+    // hàm xử lý khung search
+    function KeyCode(event) {
+      if (event.keyCode == 13) {
+        Data.then(data => {
+          var Danh_sach_Tin_tuc = [];
+          Danh_sach_Tin_tuc = data.News;
+          var gtTim = event.target.value;
+          console.log(gtTim);
+          var Danh_sach_Tim = Danh_sach_Tin_tuc.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()))
+          Xuat_Danh_sach(Danh_sach_Tim, Th_Thong_bao)
+        })
+
+      }
+    }
+    // Chức năng Giỏ hàng
+    Th_Mua_hang.onclick = () => {
+      if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+        //alert(`Chuyển trang giỏ hàng`)
+        window.location = `MH_Gio_hang.html`;
+      } else {
+        alert(`Giỏ hàng của bạn trống`)
+      }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

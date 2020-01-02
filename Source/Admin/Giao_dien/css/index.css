@@ -1,0 +1,117 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidenav {
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 400px;
+    left: 10px;
+    background:rgb(13, 94, 187);
+    overflow-x: hidden;
+    padding: 8px 0;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #f1f1f1;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #064579;
+  }
+  
+
+/* === */
+#mySidenav button {
+  position: absolute;
+  left: -230px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 300px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+ 
+}
+
+#mySidenav button:hover {
+  left: 0;
+}
+
+#Th_Them {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#Th_Sua {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#Th_Xoa {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#Th_Tim {
+  top: 200px;
+  background-color: #555
+}
+
+
+#Th_Them {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#Th_Home {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#Th_DungCuVanPhong{
+  top: 140px;
+  background-color: #f44336;
+}
+
+#Th_NhaCuaDoiSong {
+  top: 200px;
+  background-color: #555
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+  
+#Th_Thong_bao {
+    border-radius: 20px 20px 20px 20px
+}
+  
+
+.footer_info p{
+  color: #F8DF8A;
+}
+.footer_info a{
+  color: #F8DF8A;
+}
+
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .img_pro_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

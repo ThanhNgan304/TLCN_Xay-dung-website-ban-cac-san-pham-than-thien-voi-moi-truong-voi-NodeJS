@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Shop Homepage</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+<style>
+  .CHON {
+      background: silver;
+      opacity: 0.8;
+      color:chocolate;
+  }
+</style>
+
+<body>
+
+  <!-- Navigation -->
+  
+    <!-- Start menu -->
+    <div id="Th_Header_Menu">
+        
+    </div>
+    
+    <!-- End menu -->
+    
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-2">
+      
+        <div class="list-group sidenav"  style="font-size: 18px; font-weight: bold;">
+          <a href="#" class="list-group-item"><div id="Th_Home" class="text-center">Tất cả</div></a>
+          <a href="#" class="list-group-item"><div id="Th_DungCuVanPhong" class="text-center">Dụng cụ văn phòng</div></a>
+          <a href="#" class="list-group-item"><div id="Th_NhaCuaDoiSong" class="text-center">Nhà cửa đời sống</div></a>
+          <div class="btn" >
+            <!-- <select class="btn btn-outline-danger" id="Th_Loc_gia" onchange="Xuat_Dien_thoai_theo_Don_gia(this.value)"> -->
+                <select class="btn btn-outline-danger" id="Th_Loc_gia" style="width: 200px">
+                    <option value="0-85">-- Chọn giá bán --</option>
+                    <option value="0-20">Dưới 20$</option>
+                    <option value="20-40">Từ 20$ đến 40$</option>
+                    <option value="40-85">Từ 40$ đến 85$</option>
+                </select>
+            <select class="btn btn-outline-danger" id="Th_Sap_xep_Ten" style="margin-top: 5px;">
+              <option value="0">-- Sắp xếp theo tên--</option>
+              <option value="1">A->Z</option>
+              <option value="2">Z->A</option>
+
+            </select>
+            <select class="btn btn-outline-danger" id="Th_Sap_xep_Gia" style="margin-top: 5px;">
+              <option value="0">-- Sắp xếp theo giá--</option>
+              <option value="1">Tăng dần</option>
+              <option value="2">Giảm dần</option>
+
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-10">
+        <div id="Th_Name_Stores">
+
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active slide">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 slide_info">
+                        <h4>Cốc gỗ tre uống nước</h4> 
+                         <h1>100% tự nhiên</h1>
+                          <h5>Giảm <strong>30%</strong> khi mua ngay hôm nay</h5>
+                         <a name="" id="" class="btn btn-success"  href="#" role="button">MUA NGAY</a>
+                      </div>
+                      <div  class="col-lg-6 col-md-6">
+                         <img class="d-block img-fluid " id="img_slide_1" alt="" src="http://localhost:1001/DungCuVanPhong_6.jpg">
+                     </div>
+                    </div>
+              </div>
+              
+            </div>
+            <div class="carousel-item slider ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 slide_info">
+                          <h4>Combo 500 quai xách ly thân thiện môi trường</h4> 
+                           <h1>100% tự nhiên</h1>
+                            <h5>Giảm <strong>30%</strong> khi mua ngay hôm nay</h5>
+                           <a name="" id="" class="btn btn-success"  href="#" role="button">MUA NGAY</a>
+                        </div>
+                        <div  class="col-lg-6 col-md-6">
+                           <img class="d-block img-fluid " id="img_slide_1" alt="" src="http://localhost:1001/DungCuVanPhong_4.jpg">
+                       </div>
+                      </div>
+                </div>
+            </div>
+            <div class="carousel-item slider">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 slide_info">
+                          <h4>Giỏ cói đựng cây, trang trí nhà cửa</h4> 
+                           <h1>100% tự nhiên</h1>
+                            <h5>Giảm <strong>30%</strong> khi mua ngay hôm nay</h5>
+                           <a name="" id="" class="btn btn-success"  href="#" role="button">MUA NGAY</a>
+                        </div>
+                        <div  class="col-lg-6 col-md-6">
+                           <img class="d-block img-fluid " id="img_slide_1" alt="" src="http://localhost:1001/NhaCuaDoiSong_10.jpg">
+                       </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+        <div class="container-fluid">
+          <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao" style="margin-bottom: 20px">
+            KHUNG THÔNG BÁO
+          </div>
+        </div>
+        <div class="row" id="Th_Cha">
+
+          <!-- <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="product.html"><img class="card-img-top" src="./img/traicay/chuoi.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="product.html">Item One</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">
+                  <div class="container">
+                    <div class="row text-left">
+                      <div class="col-lg-12">
+                          <a name="" id="" class="btn btn-primary" href="#" role="button">MUA NGAY</a>
+                      </div>
+                      <div class="col-lg-12" style="margin-top: 10px;">
+                          <a name="" id="" class="btn btn-primary" href="product.html" role="button">TÌM HIỂU THÊM</a>
+                      </div>
+                    </div>
+                  </div>
+                
+               
+                </p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div> -->
+
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <div class="row footer_info" id="Th_Info_Stores">
+
+      </div>
+      <div class="row" style="margin-top: 1rem; float:right;" id="Th_Team">
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../Xu_ly//Xu_ly_3L.js"></script>
+  <script>
+    Tao_the_hien_Header_Menu(Th_Header_Menu);
+    var items = Tao_list_item_Menu();
+    
+    console.log('Item đầu tiên nek: ' + items.innerHTML);
+    var Stores = Doc_Thong_tin_Cua_hang();
+    Output_Name_Store(Stores, Th_Name_Stores);
+    Output_Info_Store(Stores, Th_Info_Stores);
+    Output_Team_Name(Stores, Th_Team);
+    Output_Logo(Stores, Th_Logo);
+
+    var Data = Read_list_Products();  
+    Data.then(data => {
+      var Danh_sach_San_pham = [];
+      Danh_sach_San_pham = data.Products;
+      console.log('List bên index' + Danh_sach_San_pham)
+      console.log(Danh_sach_San_pham)
+      if (Danh_sach_San_pham.length > 0) {
+        Xuat_Danh_sach(Danh_sach_San_pham, Th_Thong_bao);
+        if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+            var ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"));
+            Th_Gio_hang.innerHTML = `${ds.length}`
+        }
+      }
+      else {
+        Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
+      }
+       // Xử lý các nút chức năng
+
+       Th_Home.onclick = () => {
+            //đưa section sort về text "Sắp xếp theo"
+            Th_Sap_xep_Ten.value = "0";
+            Th_Sap_xep_Gia.value = "0";
+            //đưa section filter về text "Chọn giá bán"
+            Th_Loc_gia.value = "0-85";
+
+            Danh_sach_San_pham = data.Products;
+            Xuat_Danh_sach(Danh_sach_San_pham, Th_Thong_bao);
+
+            //Đổi nền button
+            Th_Home.classList.add("CHON");
+            Th_DungCuVanPhong.classList.remove("CHON");
+            Th_NhaCuaDoiSong.classList.remove("CHON");
+
+            //đưa text trong khung tìm kiếm về rỗng
+            Th_gtTim.value = "";
+        }
+        Th_DungCuVanPhong.onclick = () => {
+            //đưa section sort về text "Sắp xếp theo"
+            Th_Sap_xep_Ten.value = "0";
+            Th_Sap_xep_Gia.value = "0";
+            //đưa section filter về text "Chọn giá bán"
+            Th_Loc_gia.value = "0-85";
+
+            Danh_sach_San_pham = data.Products;
+            var dsDCVP = Danh_sach_San_pham.filter(x => x.Nhom_San_pham.Ma_so.toLowerCase() == "dungcuvanphong")
+            Xuat_Danh_sach(dsDCVP, Th_Thong_bao);
+            Danh_sach_San_pham = dsDCVP;
+            Th_Home.classList.remove("CHON");
+            Th_DungCuVanPhong.classList.add("CHON");
+            Th_NhaCuaDoiSong.classList.remove("CHON");
+            //đưa text trong khung tìm kiếm về rỗng
+            Th_gtTim.value = "";
+        }
+        Th_NhaCuaDoiSong.onclick = () => {
+            //đưa section sort về text "Sắp xếp theo"
+            Th_Sap_xep_Ten.value = "0";
+            Th_Sap_xep_Gia.value = "0";
+            //đưa section filter về text "Chọn giá bán"
+            Th_Loc_gia.value = "0-85";
+
+            Danh_sach_San_pham = data.Products;
+            var dsNCDS = Danh_sach_San_pham.filter(x => x.Nhom_San_pham.Ma_so.toLowerCase() == "nhacuadoisong")
+            Xuat_Danh_sach(dsNCDS, Th_Thong_bao);
+            Danh_sach_San_pham = dsNCDS; 
+            Th_Home.classList.remove("CHON");
+            Th_DungCuVanPhong.classList.remove("CHON");
+            Th_NhaCuaDoiSong.classList.add("CHON");
+            //đưa text trong khung tìm kiếm về rỗng
+            Th_gtTim.value = "";
+        }
+         
+        // Lọc giá bán
+        Th_Loc_gia.onchange = () => {
+            var gia = Th_Loc_gia.value.split("-");
+            console.log(gia);
+            var Danh_sach_Gia = Danh_sach_San_pham.filter(x => parseInt(x.Don_Gia_Ban) > parseInt(gia[0]) && parseInt(x.Don_Gia_Ban) <= parseInt(gia[1]))
+            Danh_sach_San_pham = Danh_sach_Gia;
+            Xuat_Danh_sach(Danh_sach_Gia, Th_Thong_bao)
+        }
+
+        // Sắp xếp
+
+        Th_Sap_xep_Ten.onchange = () => {
+            var vt = Th_Sap_xep_Ten.value
+            //console.log(vt)
+            switch (parseInt(vt)) {
+                case 1:
+                    Sap_Tang_theo_Ten(Danh_sach_San_pham)
+                    break;
+                case 2:
+                    Sap_Giam_theo_Ten(Danh_sach_San_pham)
+                    break;
+            }
+
+        }
+
+        Th_Sap_xep_Gia.onchange = () => {
+            var vt = Th_Sap_xep_Gia.value
+            //console.log(vt)
+            switch (parseInt(vt)) {
+                case 1:
+                    Sap_Tang_theo_Gia(Danh_sach_San_pham)
+                    break;
+                case 2:
+                    Sap_Giam_theo_Gia(Danh_sach_San_pham)
+                    break;
+            }
+
+        }
+        
+    });
+  
+    //xuất danh sách sản pham
+    function Xuat_Danh_sach(DS, Th_Thong_bao) {
+      Th_Cha.innerHTML = ""
+      var dsChon=[];
+      if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+          dsChon = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"));
+      }
+      DS.forEach(sp => {
+        var The_hien = Tao_The_hien_San_pham(sp, Th_Cha, Th_Gio_hang)
+        var vi_tri=dsChon.indexOf(sp.Ma_so);
+        if(vi_tri>=0){
+            The_hien.className +=" CHON"
+        }
+        
+      });
+      Th_Thong_bao.innerHTML = `<h3>Danh sách sản phẩm (${DS.length}) </h3>`
+    }
+
+    function Sap_Tang_theo_Ten(Danh_sach) {
+            // Là chuỗi
+            Danh_sach.sort((a, b) => a.Ten.localeCompare(b.Ten))
+            Xuat_Danh_sach(Danh_sach, Th_Thong_bao)
+        }
+        function Sap_Giam_theo_Ten(Danh_sach) {
+            // Là chuỗi
+            Danh_sach.sort((a, b) => b.Ten.localeCompare(a.Ten))
+            Xuat_Danh_sach(Danh_sach, Th_Thong_bao)
+        }
+
+        function Sap_Tang_theo_Gia(Danh_sach) {
+            // Là số
+            Danh_sach.sort((a, b) => {
+                return parseInt(a.Don_Gia_Ban) - parseInt(b.Don_Gia_Ban)
+            })
+            Xuat_Danh_sach(Danh_sach, Th_Thong_bao)
+
+        }
+        function Sap_Giam_theo_Gia(Danh_sach) {
+            // Là số
+            Danh_sach.sort((a, b) => {
+                return parseInt(b.Don_Gia_Ban) - parseInt(a.Don_Gia_Ban)
+            })
+            Xuat_Danh_sach(Danh_sach, Th_Thong_bao)
+        }
+
+     // hàm xử lý khung search
+     function KeyCode(event) {
+            if (event.keyCode == 13) {
+              Data.then(data => {
+                var Danh_sach_San_pham = [];
+                Danh_sach_San_pham = data.Products;
+                var gtTim = event.target.value;
+                console.log(gtTim);
+                var Danh_sach_Tim = Danh_sach_San_pham.filter(x => x.Ten.toLowerCase().includes(gtTim.toLowerCase()))
+                Xuat_Danh_sach(Danh_sach_Tim, Th_Thong_bao)
+              })
+     
+            }
+        }
+    // Chức năng Giỏ hàng
+    Th_Mua_hang.onclick=()=>{
+        if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+            //alert(`Chuyển trang giỏ hàng`)
+            window.location=`MH_Gio_hang.html`;
+        }else{
+            alert(`Giỏ hàng của bạn trống`)
+        }
+    }
+
+        // Xử lý chọn
+        Th_Danh_sach_Chon.onclick=()=>{
+            /*
+            var dsChon=document.querySelectorAll(".CHON");
+            //console.log(dsChon.length);
+            dsChon.forEach(Dien_thoai_chon=>{
+                console.log(Dien_thoai_chon.getAttribute("data"));
+            })
+            */
+            //console.log(sessionStorage.length);
+            //console.log(sessionStorage.getItem("ANDROID_1"));
+            //console.log(sessionStorage.key(1));
+            //console.log(sessionStorage.removeItem("ANDROID_1"));
+            //sessionStorage.clear();
+        }
+        
+       //Tạo thể hiện modal
+function Show_Modal(data) {
+  //   var the_hien = document.createElement("div")
+  //   the_hien.setAttribute("data", JSON.stringify(San_pham))
+  //   var Chuoi_HTML = `
+  //   <!-- Modal -->
+  //   <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  //       <div class="modal-dialog" role="document">
+  //           <div class="modal-content">
+  //               <div class="modal-header">
+  //                   <h4 class="modal-title text-danger" id="modelTitleId">${San_pham.Ten}</h4>
+  //                   <button type="button" id="Th_Close" class="close" data-dismiss="modal" aria-label="Close">
+  //                       <span aria-hidden="true">&times;</span>
+  //                   </button>
+
+  //               </div>
+  //               <div class="modal-body" id="Th_Chi_tiet">
+
+  //               </div>
+  //               <!-- <div class="modal-footer">
+  //                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  //                   <button type="button" class="btn btn-primary">Save</button>
+  //               </div> -->
+  //           </div>
+  //       </div>
+  //   </div>
+  // `
+  //   the_hien.innerHTML = Chuoi_HTML;
+    
+  //   return the_hien
+
+  console.log(`Xem chi tiết ${data}`)
+}
+
+       
+  </script>
+
+</body>
+
+</html>
+
+

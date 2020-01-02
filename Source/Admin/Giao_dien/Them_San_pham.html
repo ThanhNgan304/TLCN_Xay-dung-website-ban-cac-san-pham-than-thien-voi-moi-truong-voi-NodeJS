@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Thêm sản phẩm</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container-fluid btn">
+        <div class="float-left">
+            <button type="button" class="btn btn-success" id="Th_Dong_y">
+                Đồng ý
+            </button>
+
+            <button type="button" class="btn btn-danger" id="Th_Bo_qua">
+                Bỏ qua
+            </button>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
+            Thêm Sản Phẩm
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="Th_Cha"></div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../Xu_ly/Xu_ly_3L.js"></script>
+    <script>
+        var result_Pro = Read_list_Products();
+
+        result_Pro.then(result => {
+            var list_Products = [];
+            list_Products = result.Products;
+            console.log('List đầu nha:' + list_Products)
+            Tao_The_hien_Them_San_pham(Th_Cha);
+            Th_Nhom_San_pham.onchange();
+
+            
+            //tạo thể hiện thêm sản phẩm
+            function Tao_The_hien_Them_San_pham(Th_Cha) {
+
+                var Chuoi_HTML = `
+                    <div class="form m-3 p-3">
+                    
+                    <div class="form-group">
+                        <label for="Th_Nhom_San_pham">Nhóm Sản phẩm</label>
+                        <select id="Th_Nhom_San_pham" onchange="Lay_Ma_so_cuoi()">
+                            <option value="DungCuVanPhong">Dụng cụ văn phòng</option>
+                            <option value="NhaCuaDoiSong">Sản phẩm đời sống</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_Ma_so">Mã số Sản phẩm</label>
+                        <input type="text" class="form-control" id="Th_Ma_so" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_Ten">Tên Sản phẩm</label>
+                        <input type="text" class="form-control" id="Th_Ten" placeholder="Nhập Tên Sản phẩm...">
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_Ten">Số lượng</label>
+                        <input type="number" class="form-control" id="Th_So_luong" placeholder="Nhập Số lượng Sản phẩm...">
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_Don_gia_Nhap">Đơn giá Nhập</label>
+                        <input type="text" class="form-control" id="Th_Don_gia_Nhap" placeholder="Nhập Đơn giá Nhập....">
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_Don_gia_Ban">Đơn giá Bán</label>
+                        <input type="text" class="form-control" id="Th_Don_gia_Ban" placeholder="Nhập Đơn giá Bán....">
+                    </div>
+                    <div class="form-group">
+                        <label for="Th_file">Chọn hình</label>
+                        <input id="Th_file" type="file" onchange="Xem_truoc_Media()" accept="image/jpg" />
+                        <img id="Th_Hinh_Xem_truoc" style="width:10rem" />
+                    </div>
+                    
+                </div>
+                `
+                Th_Cha.innerHTML = Chuoi_HTML
+
+            }
+           
+            // Xử lý Xem trước Media
+            function Xem_truoc_Media() {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    Th_Hinh_Xem_truoc.src = e.target.result;
+                    //console.log(e.target.result)
+                }
+                reader.readAsDataURL(Th_file.files[0]);
+
+            }
+            function XL_Ghi_Them() {
+
+                var Ma_so = Th_Ma_so.value
+                var Ten = Th_Ten.value
+                var So_luong = Th_So_luong.value
+                var Don_gia_Nhap = Th_Don_gia_Nhap.value
+                var Don_gia_Ban = Th_Don_gia_Ban.value
+                var Nhom_San_pham_Ten = Th_Nhom_San_pham.value
+                var Nhom_San_pham_Ma_so = Th_Nhom_San_pham.value
+                var San_pham = {
+                    "Ten": Ten,
+                    "Ma_so": Ma_so,
+                    "So_luong": So_luong,
+                    "Don_Gia_Ban": parseInt(Don_gia_Ban),
+                    "Don_Gia_Nhap": parseInt(Don_gia_Nhap),
+                    "Nhom_San_pham": {
+                        "Ten": Nhom_San_pham_Ten,
+                        "Ma_so": Nhom_San_pham_Ma_so
+                    },
+                    "Danh_sach_Phieu_Dat": [],
+                    "Danh_sach_Phieu_Ban": [],
+                    "Danh_sach_Phieu_Nhap": [],
+                    "Danh_sach_Phieu_Xuat": []
+                }
+                // Them sản phẩm
+                var San_pham = Write_new_Products(San_pham)
+                if (San_pham) {
+                    list_Products.push(San_pham)
+                    // // Cập nhật Media
+                    var reader = new FileReader()
+                    var Chuoi_nhi_phan = ""
+                    var Ten_Hinh = `${Ma_so}.jpg`
+                    var Kq = "OK"
+                    reader.onload = function (e) {
+                        Chuoi_nhi_phan = e.target.result;
+                        var Doi_tuong = { "Name": Ten_Hinh, "String_Binary": Chuoi_nhi_phan }
+                        Kq = Ghi_Hinh_Media(Doi_tuong)
+                    }
+                    reader.readAsDataURL(Th_file.files[0])
+                    return Kq
+                }
+
+            }
+
+            Th_Dong_y.onclick = () => {
+                var Kq = XL_Ghi_Them()
+                if (Kq == "OK") {
+                    Th_Thong_bao.innerHTML = "Thêm thành công Sản phẩm mới";
+                    
+                    window.location = "index.html"
+                    
+                }
+            }
+
+            Th_Bo_qua.onclick = () => {
+                window.location = "index.html"
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

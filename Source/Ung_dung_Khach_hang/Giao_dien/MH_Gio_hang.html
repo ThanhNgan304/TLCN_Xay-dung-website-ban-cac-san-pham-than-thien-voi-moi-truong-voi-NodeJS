@@ -1,0 +1,311 @@
+<script>
+    if (sessionStorage.getItem("Danh_sach_Chon") == undefined) {
+        window.location = "index.html"
+    }
+</script>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Giỏ hàng của bạn</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    label {
+        font-weight: bold;
+
+    }
+
+    input[type="text"] {
+        width: 30rem;
+        border: none;
+        border-bottom: 1px solid #f63
+    }
+</style>
+
+<body>
+    <!-- Start menu -->
+    <div id="Th_Header_Menu">
+
+    </div>
+
+    <!-- End menu -->
+
+    <div id="Th_Name_Stores">
+
+    </div>
+    <div class="container-fluid btn text-left" id="Th_Chuc_nang">
+        <button type="button" class="btn btn-success" id="Th_Dong_y">
+            Đồng ý
+        </button>
+        <button type="button" class="btn btn-danger" id="Th_Bo_qua">
+            Xóa Đơn hàng
+        </button>
+        <button type="button" class="btn btn-danger" onclick="window.location=`index.html`" id="Th_Mua_tiep">
+            Mua tiếp
+        </button>
+    </div>
+    <div class="container-fluid">
+        <div class="btn btn-outline-danger btn-block" id="Th_Thong_bao">
+            GIỎ HÀNG CỦA BẠN
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row" id="Th_Cha">
+            <div class="float-left">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Hình </th>
+                            <th>Tên </th>
+                            <th>Nhóm sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá Bán</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Th_Danh_sach_San_pham_Mua">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="float-rigth ml-5">
+                <div class="clearfix">
+                    <h3 class="text-info">THÔNG TIN GIAO HÀNG</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="Th_Ho_ten">Họ tên: </label>
+                            <input type="text" class="form-control" id="Th_Ho_ten">
+                        </div>
+                        <div class="form-group">
+                            <label for="Th_Email">Email: </label>
+                            <input type="text" class="form-control" id="Th_Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="Th_San_pham">Điện thoại: </label>
+                            <input type="text" class="form-control" id="Th_San_pham">
+                        </div>
+                        <div class="form-group">
+                            <label for="Th_Dia_chi">Địa chỉ Giao hàng:</label>
+                            <input type="text" class="form-control" id="Th_Dia_chi">
+                        </div>
+                        <div class="form-group">
+                            <label for="Th_Ngay_Giao_hang">Ngày Giao hàng:</label>
+                            <input type="date" class="form-control" id="Th_Ngay_Giao_hang">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <div class="row footer_info" id="Th_Info_Stores">
+
+            </div>
+            <div class="row" style="margin-top: 1rem; float:right;" id="Th_Team">
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../Xu_ly/Xu_ly_3L.js"></script>
+    <script>
+        Tao_the_hien_Header_Menu(Th_Header_Menu);
+        var Stores = Doc_Thong_tin_Cua_hang();
+        Output_Name_Store(Stores, Th_Name_Stores);
+        Output_Info_Store(Stores, Th_Info_Stores);
+        Output_Team_Name(Stores, Th_Team);
+        Output_Logo(Stores, Th_Logo);
+        if (sessionStorage.getItem("Danh_sach_Chon") != undefined) {
+            var ds = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"));
+            Th_Gio_hang.innerHTML = `${ds.length}`
+        }
+        var Data = Read_list_Products();
+        Data.then(data => {
+            var Danh_sach_San_pham = [];
+            Danh_sach_San_pham = data.Products;
+            if (Danh_sach_San_pham.length > 0) {
+                var Danh_sach_Cap_nhat = []
+                Danh_sach_Chon = JSON.parse(sessionStorage.getItem("Danh_sach_Chon"))
+                Danh_sach_Chon.forEach(sp => {
+                    var San_pham = Danh_sach_San_pham.find(x => x.Ma_so == sp)
+                    Danh_sach_Cap_nhat.push(San_pham)
+                });
+                console.log(Danh_sach_Cap_nhat)
+                Xuat_San_pham_Mua(Danh_sach_Cap_nhat, Th_Danh_sach_San_pham_Mua)
+            }
+            else {
+                Th_Thong_bao.innerHTML = "Lỗi đọc dữ liệu"
+            }
+
+
+            ///////////////////////////////////////////////
+            function Xuat_Thong_tin_Dat_hang_Thanh_cong(Th_Cha, Ds_Phieu_Dat) {
+                var noi_dung_HTML = `
+            <table class="table" >
+                    <thead>
+                        <tr>
+                            <th>Hình </th>
+                            <th>Tên </th>
+                            <th>Nhóm Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá Bán</th>
+                        </tr>
+                    </thead>
+            `
+                var Tong = 0
+                Ds_Phieu_Dat.forEach(Khach => {
+                    noi_dung_HTML += `
+                <tbody>
+                <tr>
+                    <td scope="row">
+                        <img src=http://localhost:1001/${Khach.San_pham.Ma_so}.jpg style="width:80px" />
+                    </td >
+                    <td>${Khach.San_pham.Ten}</td>
+                    <td>${Khach.San_pham.Nhom_San_pham.Ma_so}</td>
+                    <td>
+                        ${Khach.Phieu_Dat.So_luong}
+                    </td>
+                    <td>${Tao_Chuoi_The_hien_So_nguyen_duong(Khach.San_pham.Don_Gia_Ban)} $</td>
+                </tr >
+                `
+                    Tong += Khach.Phieu_Dat.So_luong * Khach.San_pham.Don_Gia_Ban
+                })
+
+
+                noi_dung_HTML += `
+            <tr>
+                <td colspan="5" class="text-right text-danger"><strong>Tổng thành tiền: ${Tao_Chuoi_The_hien_So_nguyen_duong(Tong)} $ </strong></td>
+            </tr>
+            <tr>
+                <td colspan="5"><h4 class="text-info">Chào Quí khách: ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Ho_ten}<br>
+                Nhân viên Chúng tôi sẽ giao hàng theo địa chỉ: ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Dia_chi}<br>
+                Liên hệ quí khách qua số điện thoại: ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.San_pham}<br>
+                Email: ${Ds_Phieu_Dat[0].Phieu_Dat.Khach_hang.Email}
+                </h4>     
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="text-center"><button class="btn btn-primary" onclick="window.location='index.html'" >Xác nhận</button></td>
+            </tr>    
+            
+            </tbody>
+            </table>
+            `
+                Th_Cha.innerHTML = noi_dung_HTML
+            }
+
+
+            // Xử lý các nút chức năng
+
+            Th_Bo_qua.onclick = () => {
+                // Xóa Session
+                sessionStorage.removeItem("Danh_sach_Chon")
+                // Chuyển trang
+                window.location = `index.html`
+            }
+
+            Th_Dong_y.onclick = () => {
+                var Ds_Dat = []
+                Danh_sach_Cap_nhat.forEach(San_pham => {
+                    var Phieu_Dat = {
+                        "Ngay_Dat_hang": new Date().toLocaleDateString(),
+                        "Ngay_Giao_hang": new Date(Th_Ngay_Giao_hang.value).toLocaleDateString(),
+                        "So_luong": parseInt(document.querySelector(`#Th_So_luong_${San_pham.Ma_so}`).value),
+                        "Don_Gia_Ban": parseInt(San_pham.Don_Gia_Ban),
+                        "Tien": parseInt(San_pham.Don_Gia_Ban) * parseInt(document.querySelector(`#Th_So_luong_${San_pham.Ma_so}`).value),
+                        "Trang_thai": "CHUA_GIAO_HANG",
+                        "Khach_hang": {
+                            "Ho_ten": Th_Ho_ten.value,
+                            "San_pham": Th_San_pham.value,
+                            "Email": Th_Email.value,
+                            "Dia_chi": Th_Dia_chi.value
+                        }
+                    }
+
+                    var Khach_hang = {
+                        "San_pham": San_pham,
+                        "Phieu_Dat": Phieu_Dat
+                    }
+                    Ds_Dat.push(Khach_hang)
+                })
+                console.log("Danh sách phiếu đặt nek: " + JSON.stringify(Ds_Dat))
+                //alert(JSON.stringify(Ds_Dat));
+                var Kq = Ghi_Phieu_Dat_hang(Ds_Dat)
+
+                //var Kq="OK"
+                if (Kq == "OK") {
+                    Th_Thong_bao.innerHTML = "<strong>Cám ơn Quí khách đã mua hàng. Xác nhận Đơn hàng</strong>"
+                    Th_Chuc_nang.style.display = "none"
+                    Xuat_Thong_tin_Dat_hang_Thanh_cong(Th_Cha, Ds_Dat)
+                    sessionStorage.removeItem("Danh_sach_Chon")
+                }
+
+            }
+
+        });
+
+
+
+        //////////////////////////////////////////////////////
+
+        function Xuat_San_pham_Mua(Danh_sach_Mua, Th_Cha) {
+            Th_Cha.innerHTML = ""
+            var noi_dung_HTML = ``
+            var tong_tien = 0;
+            Danh_sach_Mua.forEach(San_pham_Mua => {
+                noi_dung_HTML += `
+            <tr>
+                <td scope="row">
+                    <img src=http://localhost:1001/${San_pham_Mua.Ma_so}.jpg style="width:80px" />
+                </td >
+                <td>${San_pham_Mua.Ten}</td>
+                <td>${San_pham_Mua.Nhom_San_pham.Ma_so}</td>
+                <td>
+                    <input type="number" min="1" max="10" id="Th_So_luong_${San_pham_Mua.Ma_so}" value="1" class="text-right" />
+                </td>
+                <td>${San_pham_Mua.Don_Gia_Ban} $</td>
+            </tr >
+            `
+            //tong_tien += parseInt(San_pham_Mua.Don_Gia_Ban) * parseInt(`#Th_So_luong_${San_pham_Mua.Ma_so}`.value)
+          
+            });
+
+            
+            //noi_dung_HTML += ` <td>Tổng tiền: ${tong_tien} $</td>`
+            Th_Cha.innerHTML = noi_dung_HTML
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

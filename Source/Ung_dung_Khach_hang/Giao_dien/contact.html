@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Contact FreshGreen</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/contact.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <input placeholder="Search ..." type="text" class="btn btn-outline-danger" onkeyup="KeyCode(event)"
+              style="width:20rem" id="Th_Gia_tri_Tim">
+            <i class="fa fa-search mr-3" id="Th_Tim"></i>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link search" id="search">
+              <i class="ti-search"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+              </a>
+           
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="fixed-top text-right mr-2 mt-5" id="Th_Mua_hang">
+      <span class="text-white bg-danger btn border border-danger">
+        <u id="Th_Gio_hang">0</u>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </span>
+    </div>
+   
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="form-contact">
+        <h2 class="title-section text-center" style="margin-bottom: 0px;">Đăng ký nhận thông tin cửa hàng</h2>
+        <h3 style="text-align:center;color:rgb(38, 139, 185); font-size: 23px; font-family: Baskerville Old Face;">Qúy
+            khách vui lòng để lại thông tin, chúng tôi sẽ liên hệ ngay</h3>
+        <div class="contact-form">
+            <form id="contact" action="" method="post">
+                
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <p>HỌ TÊN</p>
+                        <fieldset >
+                            <input placeholder="" type="text" tabindex="1" required>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <p>EMAIL</p>
+                        <fieldset >
+                            <input placeholder="" type="email" tabindex="2" required>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <p>SỐ ĐIỆN THOẠI</p>
+                        <fieldset>
+                            <input placeholder="" type="tel" tabindex="3" required>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <p>ĐỊA CHỈ</p>
+                        <fieldset>
+                            <input placeholder="" type="text" tabindex="4" required>
+                        </fieldset>
+                    </div>
+                </div>
+                <p>NỘI DUNG</p>
+                <fieldset>
+                  <textarea id="Th_Noi_dung" class="ckeditor"></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit"
+                        data-submit="...Sending">ĐĂNG KÝ </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../ckeditor/ckeditor.js"></script>
+  <script>
+    //CKEDITOR.replace('Th_Noi_dung', {
+       // customConfig: 'config_contact.js'
+    //});
+    
+    Th_Dong_y.onclick = () => {
+        var noi_dung = CKEDITOR.instances.Th_Noi_dung.getData();
+        Th_Xem_truoc.innerHTML = noi_dung;
+
+    }
+    
+</script>
+</body>
+
+</html>

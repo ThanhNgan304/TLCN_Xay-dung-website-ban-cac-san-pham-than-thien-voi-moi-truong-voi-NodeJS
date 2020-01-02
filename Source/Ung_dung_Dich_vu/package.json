@@ -1,0 +1,18 @@
+{
+  "name": "ung_dung_dich_vu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./Services/SERVER_DATA.js"
+  },
+  "keywords": [],
+  "author": "tr_hoang_a",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.3.0",
+    "nodemailer": "^6.3.0",
+    "passport": "^0.4.1",
+    "twilio": "^3.33.3"
+  }
+}
